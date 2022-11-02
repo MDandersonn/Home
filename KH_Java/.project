@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>KH_HOME_java</name>
+=======
+	<name>KH_Home_Java</name>
+>>>>>>> branch 'main' of https://github.com/MDandersonn/Home.git
 	<comment></comment>
 	<projects>
 	</projects>
