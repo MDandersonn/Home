@@ -4,16 +4,22 @@
 			"path": ".."
 		},
 		{
-			"path": "expert-adventure-"
-		},		
-		{
-			"path": "C:\\Users\\user2\\git\\java-class-a8"
+			"path": "C:\\Users\\1215k\\eclipse-workspace\\expert-adventure-"
 		},
 		{
-			"path": "C:\\Users\\user2\\git\\java-class-a8-oracle"
+			"path": "C:\\Users\\1215k\\eclipse-workspace\\java-class-a8"
+		},
+		{
+			"path": "../../../../../_Source/VScodeHTMLCSS"
+		},
+		{
+			"path": "../../../../../_Source/VScode Do it HTML CSS"
+		},
+		{
+			"path": "../../../../../_Source/VScodePython"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "Home"
+		"liveServer.settings.multiRootWorkspaceName": "VScode Do it HTML CSS"
 	}
 }
