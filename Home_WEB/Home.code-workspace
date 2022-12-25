@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "../../../../../_Source/VScodePython"
+		},
+		{
+			"path": "../../../../../_Source/VScode Do it javascript"
 		}
 	],
 	"settings": {
