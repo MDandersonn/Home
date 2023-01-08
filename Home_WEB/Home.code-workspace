@@ -20,9 +20,12 @@
 		},
 		{
 			"path": "../../../../../_Source/VScode Do it javascript"
+		},
+		{
+			"path": "../../../../../_Source/HTML,CSS"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "expert-adventure-"
+		"liveServer.settings.multiRootWorkspaceName": "HTML,CSS"
 	}
 }
