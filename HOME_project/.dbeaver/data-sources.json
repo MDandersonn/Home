@@ -37,7 +37,6 @@
 			"name": "DEV01",
 			"save-password": true,
 			"read-only": false,
-			"virtual-model-id": "oracle_thin-184dde85f50-c377dbc22027e68",
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
@@ -59,7 +58,8 @@
 					"@dbeaver-connection-type@": "BASIC",
 					"@dbeaver-sid-service@": "SERVICE"
 				},
-				"auth-model": "oracle_native"
+				"auth-model": "oracle_native",
+				"handlers": {}
 			}
 		}
 	},

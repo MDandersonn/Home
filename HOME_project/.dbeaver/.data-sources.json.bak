@@ -34,15 +34,14 @@
 		"oracle_thin-184ddeab08e-49cef939c14b5aa3": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "ORCL",
+			"name": "DEV01",
 			"save-password": true,
 			"read-only": false,
-			"virtual-model-id": "oracle_thin-184dde85f50-c377dbc22027e68",
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
-				"database": "xe",
-				"url": "jdbc:oracle:thin:@//localhost:1521/xe",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//localhost:1521/XE",
 				"home": "C:\\oraclexe\\app\\oracle\\product\\11.2.0\\server",
 				"type": "dev",
 				"provider-properties": {
@@ -69,7 +68,7 @@
 			"name": "Development",
 			"color": "255,255,255",
 			"description": "Regular development database",
-			"auto-commit": true,
+			"auto-commit": false,
 			"confirm-execute": false,
 			"confirm-data-change": false,
 			"auto-close-transactions": false
