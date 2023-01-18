@@ -8,8 +8,8 @@ drop table visit_t;
 delete from visit_t;
 
 create table VISIT_T(
-	context varchar2(500 char),
-	nickname varchar2(25 char)
+   context varchar2(500 char),
+   nickname varchar2(25 char)
 );
 
 create sequence visit_s;
@@ -20,9 +20,9 @@ insert into visit_t values(1,'context','nickname');
 insert into visit_t values(2,'context','nickname');
 insert into visit_t values(3,'context','nickname');
 create table VISIT_T(
-	id number primary key,
-	context varchar2(500 char),
-	nickname varchar2(25 char)
+   id number primary key,
+   context varchar2(500 char),
+   nickname varchar2(25 char)
 );
 
 
@@ -35,8 +35,8 @@ commit;
 
 
 create table bookmark_T(
-	url varchar2(50 char),
-	name varchar2(25 char)
+   url varchar2(50 char),
+   name varchar2(25 char)
 );
 
 
@@ -59,9 +59,9 @@ delete from BOOKMARK_T ;
 
 drop table BOOKMARK_T ;
 create table bookmark_T(
-	id number primary key,
-	url varchar2(50 char),
-	name varchar2(25 char)
+   id number primary key,
+   url varchar2(50 char),
+   name varchar2(25 char)
 );
 
 
@@ -79,10 +79,21 @@ create sequence BOOKMARK_S;
 select BOOKMARK_S.NEXTVAL from dual;
 drop sequence bookmark_S;
 
-create table user_T(
-	USERID varchar2(20) primary key,
-	password varchar2(20) ,
-	email varchar2(100)
 
-	
+
+create table user_T(
+   USERID varchar2(20) primary key,
+   password varchar2(20),
+   email varchar2(100)
+
 );
+select * from user_t;
+commit;
+
+
+
+
+
+
+
+
