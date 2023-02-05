@@ -88,4 +88,14 @@ commit;
 select * from t_member;
 
 
+select * from visit_t order by id;
+select rownum as num, id,nickname,context
+			from (select * from visit_t order by id);
+		
+		
+select *
+	from(select rownum as num,id,nickname,context
+			from (select * from visit_t order by id)
+		)
+	where num between 1 and 6;
 
