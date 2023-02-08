@@ -266,3 +266,4 @@ insert into role_t values(ROLE_S.NEXTVAL,'dada' ,'USER');
 insert into role_t values(ROLE_S.NEXTVAL,'jaja' ,'USER');
 
 
+select * from dual;
