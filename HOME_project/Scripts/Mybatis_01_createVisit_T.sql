@@ -62,6 +62,7 @@ commit;
 
 
 --개인별 북마크 구현--------------------------------------------------------
+
 drop table bookmark_T;
 
 create table bookmark_T(
@@ -75,6 +76,7 @@ select * from BOOKMARK_T;
 commit;
 
 ------------------------------pro07프로젝트----------------------------
+
 create table t_member(
 	id varchar2(20) primary key,
 	pwd varchar2(10),
@@ -89,6 +91,7 @@ commit;
 select * from t_member;
 
 -------------------------visit 페이징---------------------------------
+
 select * from visit_t order by id;
 select rownum as num, id,nickname,context
 			from (select * from visit_t order by id);
@@ -164,7 +167,8 @@ commit;
 
 
 
----Board_T에서 페이징
+---Board_T에서 페이징--------------------
+
 SELECT id, btype, title, writer, createDate, viewCnt
   FROM(SELECT ROWNUM AS NUM
             , id, btype, title, writer, createDate, viewCnt
@@ -195,10 +199,70 @@ INSERT INTO ROLE_T VALUES(ROLE_S.NEXTVAL, 'staff_a', 'STAFF');
 SELECT * FROM ROLE_T;
 
 commit;
-----------------------------------------------------------------------
+
+-------------이미지파일경로추가---------------------------------------------------------
+
+
+ALTER TABLE USER_T ADD pImg VARCHAR2(250) DEFAULT '/static/img/profile/default.png';
+
+SELECT * FROM USER_T;
+
+UPDATE USER_T
+   SET pImg = '/static/img/profile/images.jfif'
+ WHERE userId = 'abcd';
+
+commit;
+
+-------------------board게시판 추천/비추천 추가--------------------------------------------------
+
+ALTER TABLE BOARD_T ADD recCnt NUMBER DEFAULT 0;
+ALTER TABLE BOARD_T ADD nrecCnt NUMBER DEFAULT 0;
+commit;           
+select * from board_t;
+
+
+--------------------게시판 이미지기능--------------------------------------------
 
 
 
+drop table board_img_T;
 
+CREATE TABLE BOARD_IMG_T(
+       id NUMBER PRIMARY KEY
+     , boardId NUMBER REFERENCES BOARD_T(id)
+     , path VARCHAR2(500)
+     , name VARCHAR2(250)
+     , uuid VARCHAR2(36)
+);
+CREATE SEQUENCE BOARD_IMG_S NOCACHE;
+
+SELECT * FROM BOARD_IMG_T;
+commit;
+
+-------------------------exam볼때...---------------------------------------
+
+drop table board;
+CREATE TABLE board(
+    boardnum NUMBER,
+    boardwriter VARCHAR2(20) NOT NULL,
+    boardtitle VARCHAR2(50) NOT NULL,
+    boardcontent VARCHAR2(2000) NOT NULL,
+    boarddate DATE DEFAULT SYSDATE,
+    CONSTRAINT board_pk PRIMARY KEY(boardnum)
+);
+
+
+commit;
+
+select * from board;
+
+
+---------------role배정안된 user 배정해줘야함---------------
+
+select * from user_t;
+select * from ROLE_T;
+insert into role_t values(ROLE_S.NEXTVAL,'kaka' ,'USER');
+insert into role_t values(ROLE_S.NEXTVAL,'dada' ,'USER');
+insert into role_t values(ROLE_S.NEXTVAL,'jaja' ,'USER');
 
 
