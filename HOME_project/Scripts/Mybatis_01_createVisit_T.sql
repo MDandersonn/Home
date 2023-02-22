@@ -90,6 +90,9 @@ insert into t_member values('kim','1212','김유신','kim@gmail.com',sysdate);
 commit;
 select * from t_member;
 
+update T_MEMBER 
+set pwd='123';
+commit;
 -------------------------visit 페이징---------------------------------
 
 select * from visit_t order by id;
@@ -101,7 +104,7 @@ select *
 	from(select rownum as num,id,nickname,context
 			from (select * from visit_t order by id)
 		)
-	where num between 1 and 6;
+where num between 1 and 6;
 
 
 ---------------------Board---------------------
@@ -267,3 +270,82 @@ insert into role_t values(ROLE_S.NEXTVAL,'jaja' ,'USER');
 
 
 select * from dual;
+
+
+-------------------
+
+
+create table t_Board(
+	articleNO number(10) primary key,
+	parentNO number(10) default 0,
+	title varchar2(500) not null,
+	content varchar2(4000),
+	imageFileName varchar2(30),
+	writedate date default sysdate not null,
+	id varchar2(10),
+	constraint fk_id foreign key(id) references t_member(id)
+);
+
+select * from t_member;
+insert into t_board values(1,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(2,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(3,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'lee');
+insert into t_board values(4,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(5,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'kim');
+insert into t_board values(6,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(7,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(8,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(9,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(10,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(11,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(12,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(13,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(14,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(15,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(16,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(17,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(18,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(19,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+insert into t_board values(seq_t_board.nextval,0,'테스트글 입니다','테스트글입니다.',null,sysdate,'hong');
+create sequence seq_t_board;
+select seq_t_board.nextval from dual;
+commit;
+
+
+select ROWNUM,articleno,parentno,title,content,imagefilename,writedate,ID 
+		from(select * from t_board order by articleNO desc);
+	
+select articleno,parentno,title,content,imagefilename,writedate,ID
+from(select rownum as num,articleno,parentno,title,content,imagefilename,writedate,ID 
+		from(select * from t_board order by articleNO desc)
+	)
+where num between 2 and 7;
+--주의 as num 이렇게 명칭 안바꿔주고 rownum으로하면 between 2 and 7 했을때 하나도안나온다.
+
+---------------------------------------------------
+
+
+
+select* from t_board;
+
+ALTER TABLE t_board ADD recUP NUMBER DEFAULT 0;
+ALTER TABLE t_board ADD recDOWN NUMBER DEFAULT 0;
+ALTER TABLE t_board ADD viewCNT NUMBER DEFAULT 0;
+commit;
+select * from board_T;
+select * from user_T;
+
+------------------------------------------------------------
+
+CREATE TABLE t_BOARD_IMG(
+       id NUMBER PRIMARY KEY
+     , boardNO NUMBER REFERENCES t_BOARD(articleNO)
+     , path VARCHAR2(500)
+     , name VARCHAR2(250)
+     , uuid VARCHAR2(36)
+);
+CREATE SEQUENCE s_BOARD_IMG NOCACHE;
+
+
+
+SELECT * FROM BOARD_IMG_T;
