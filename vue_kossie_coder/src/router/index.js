@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter)//뷰가 뷰라우터를 사용한다는 의미
 
 const routes = [
   {

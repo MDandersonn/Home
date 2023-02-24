@@ -5,6 +5,7 @@
       <router-link to="/about">About</router-link>
     </nav>
     <router-view/>
+    <!-- 뷰라우터를 사용하고싶으면 라우터-뷰 태그 추가  -->
   </div>
 </template>
 
