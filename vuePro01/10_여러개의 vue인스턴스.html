@@ -8,32 +8,43 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    
+   
     <div id="app">
-        <!-- 양방향바인딩 --> 
-        <input type="text" v-model="word"><br>
-        {{word}}<br>
-
-
-        <!-- 메서드로 하는방법 -->
-        <input type="text" :value="word2" @keyup="func"><br>
-        {{word2}}<br>
+        {{name}}
+        <button @click="change">click</button>
+    </div>
+<hr>
+    <div id="app2">
+        {{name}}
     </div>
     
     <script>
-        new Vue({//뷰 인스턴스생성
+        const app= new Vue({//뷰 인스턴스생성
             el: '#app',
             data:{
-                word:'hello',
-                word2:'bye'
+                name:'app의 이름'
+               
                 
     
             },
             methods: {
-                func(event){
-                    console.log(event);
-                    this.word2=event.target.value
+                change() {
+                    app2.name="app2인스턴스의 name을 변경하였습니다."
                 }
+       
+            }
+            
+        })
+
+        const app2 = new Vue({//뷰 인스턴스생성
+            el: '#app2',
+            data:{
+                name:'app2의 이름'
+               
+                
+    
+            },
+            methods: {
        
             }
             

@@ -8,33 +8,24 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    
+   
     <div id="app">
-        <!-- 양방향바인딩 --> 
-        <input type="text" v-model="word"><br>
-        {{word}}<br>
-
-
-        <!-- 메서드로 하는방법 -->
-        <input type="text" :value="word2" @keyup="func"><br>
-        {{word2}}<br>
+        <!-- 자주바꾸기원할때는 v-show(초기 렌더링비용이 높음)
+        v-if는 토글비용이높음 -->
+        <div v-show="show">Yes</div>
+        <button @click="toggle">toggle</button>
     </div>
     
     <script>
         new Vue({//뷰 인스턴스생성
             el: '#app',
             data:{
-                word:'hello',
-                word2:'bye'
-                
-    
+                show:false,
             },
             methods: {
-                func(event){
-                    console.log(event);
-                    this.word2=event.target.value
-                }
-       
+                toggle(){
+                    this.show=!this.show
+                },
             }
             
         })

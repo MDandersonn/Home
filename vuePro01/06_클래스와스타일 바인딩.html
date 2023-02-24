@@ -6,37 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .red{
+            color:red;
+        }
+        .bold{
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    
+   
     <div id="app">
-        <!-- 양방향바인딩 --> 
-        <input type="text" v-model="word"><br>
-        {{word}}<br>
-
-
-        <!-- 메서드로 하는방법 -->
-        <input type="text" :value="word2" @keyup="func"><br>
-        {{word2}}<br>
+        
+        <button @click="changeColor">click</button>
+        <div :class="{red : isRed , bold:isBold}"> Hello</div>
+        <div :style="{color:col , fontSize:size}">ㅎㅇ</div>
     </div>
     
     <script>
         new Vue({//뷰 인스턴스생성
             el: '#app',
             data:{
-                word:'hello',
-                word2:'bye'
-                
-    
+                isRed:false,
+                isBold:false,
+                col:'blue',
+                size:'30px'
             },
             methods: {
-                func(event){
-                    console.log(event);
-                    this.word2=event.target.value
+                changeColor(){
+                    this.isRed=!this.isRed;  
+                    this.isBold=!this.isBold;  
                 }
        
-            }
-            
+            },
+        
         })
     //   const { createApp } = Vue
     
