@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TodoView from '../views/TodoView.vue'
 import TodoView2 from '../views/TodoView2.vue'
+import TodoView3 from '../views/TodoView3.vue'
+import ApiView from '../views/ApiView.vue'
 Vue.use(VueRouter)//뷰가 뷰라우터를 사용한다는 의미
 
 const routes = [
@@ -28,6 +30,16 @@ const routes = [
     path: '/todo2',
     name: 'todo2',
     component: TodoView2
+  },
+  {
+    path: '/todo3',
+    name: 'todo3',
+    component: TodoView3
+  },
+  {
+    path: '/api',
+    name: 'api',
+    component: ApiView
   },
 ]
 

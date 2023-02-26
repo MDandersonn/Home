@@ -4,12 +4,16 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>|
       <router-link to="/todo">Todo-app</router-link>|
-      <router-link to="/todo2">Todo-app2</router-link>
+      <router-link to="/todo2">Todo-app2</router-link>|
+      <router-link to="/todo3">Todo-app3</router-link>|
+      <router-link to="/api">ApiView</router-link>|
     </nav>
     <router-view/>
     <!-- 뷰라우터를 사용하고싶으면 라우터-뷰 태그 추가  -->
   </div>
 </template>
+
+
 
 <style>
 #app {
