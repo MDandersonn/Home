@@ -23,8 +23,6 @@ export default {
     methods:{
         updateName(e){
             console.log(e.target.value);
-            
-            
             // 부모 컴퍼넌트로 값을 보내주고
             //         (이벤트이름, 올리고싶은값)
             this.$emit('update-name', e.target.value);

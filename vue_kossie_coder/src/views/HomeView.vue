@@ -26,7 +26,7 @@
   <form>
       <InputField3 v-model="name40" />
       값:{{name40}}<br>
-      <button type="submit"> submit </button>
+      <button type="submit" @click="updateName"> submit </button>
     </form>
 <hr>
 
@@ -57,7 +57,7 @@ export default {
       name1:'kossie coder',
       name20:'',
       name30:'',
-      name40:''
+      name40:'kossie coder'
     }
   },
   components: {
@@ -71,8 +71,44 @@ export default {
     // val:자식이 부모에게 전달해준 값. 이걸로 name20의 데이터를 갱신함.
     updateName1(val){
       this.name20=val;
+    },
+    updateName(){
+      this.name40='Hello';
     }
+  },
+
+  beforeCreate(){
+    // 인스턴스가 생성되기전 실행 , 데이터에 접근이 불가능
+    console.log('beforeCreate',this.name1)
+  },
+  created(){
+    //인스턴스가 생성된후.
+    //서버에요청을보내서 응답을 받아온 데이터이용 데이터에 접근가능  
+    console.log('created',this.name1)
+  },
+  beforeMount(){
+    // alert('beforeMount')
+  },
+  mounted(){
+    // alert('mount')
+
+  },
+  beforeUpdate(){
+    // alert('beforeUpdate')
+
+  },
+  updated(){
+    //  alert('updated')
+
+  },
+  //다른페이지로 넘어갈때.
+  beforeDestroy(){
+    // alert('beforeDestroy')
+  },
+  destroyed(){
+    // alert('destroyed')
   }
+
 }
 </script>
 
